@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cadapp
+  labels:
+    app: cadapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cadapp
+  template:
+    metadata:
+      labels:
+        app: cadapp
+    spec:
+      containers:
+      - name: cadapp
+        image: uk.icr.io/srikanth/myapp
+        ports:
+        - containerPort: 5000
