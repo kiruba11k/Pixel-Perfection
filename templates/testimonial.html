@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testimonials</title>
+    <style>
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial {
+            width: 300px;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+            color:white;
+            background-color:#CC00CC;
+        }
+        .testimonial:hover {
+            background-color: #5f008f;
+            }
+            .testimonial img {
+                width: 300px;
+                margin: 10px;}
+        .testimonial blockquote {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial .designation {
+            font-size: 12px;
+            color: #888;
+        }
+        
+    </style>   
+</head>
+<body>
+    <div class="testimonials">
+        <div class="testimonial">
+            <img src="{{ url_for('static', filename='jef.jpg') }}" alt="jef" >
+            <blockquote>
+                "I had an amazing experience with this product. It exceeded my expectations!"
+            </blockquote>
+            <p class="author">Jeff Bezos</p>
+            <p class="designation">CEO, ABC Company</p>
+        </div>
+        <div class="testimonial">
+            <img src="{{ url_for('static', filename='mark.jpg') }}" alt="mark" >
+            <blockquote>
+                "The customer support team was very helpful and responsive. I highly recommend their service."
+            </blockquote>
+            <p class="author">Mark Zuckerberg</p>
+            <p class="designation">Editing Manager, XYZ Inc.</p>
+        </div>
+        <div class="testimonial">
+            <img src="{{ url_for('static', filename='tata.jpg') }}" alt="tata" >
+            <blockquote>
+                "This is the best website I've ever used. The features are fantastic!"
+            </blockquote>
+            <p class="author">Ratan Tata</p>
+            <p class="designation">Freelancer</p>
+        </div>
+        
+        <div class="testimonial">
+            <img src="{{ url_for('static', filename='sundar.jpg') }}" alt="sundar" >
+            <blockquote>
+                "Pixel Perfection is a game-changer! Their attention to detail and design expertise took our website to the next level. Highly recommended!"
+            </blockquote>
+            <p class="author">Sundar Pichai</p>
+            <p class="designation">Art Designer</p>
+        </div>
+
+    </div>
+</body>
+</html>

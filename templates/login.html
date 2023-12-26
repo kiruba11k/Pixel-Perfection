@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head><title>Login page</title>
+    <style>
+         a:link 
+            {
+             color: rgb(4, 97, 160);
+             text-decoration: none;
+            }
+
+            a:visited 
+            {color: rgb(13, 172, 172);
+                text-decoration: none;
+
+            }
+            a:hover {
+                color: rgb(223, 109, 16);
+               
+                }
+
+            a:active {
+                color: rgb(223, 109, 16);
+                
+                    }
+        body{
+            background-color: rgb(230, 230, 230);
+        }
+        .a1{
+            padding-top: 30px;
+                position: absolute; 
+                top: 0%; 
+                right: 6%;
+                align-items: space-between;  
+        }
+        .b1{
+            padding-top: 80px;
+        }
+        .f1{
+            padding-left: 110px;
+        }
+        #log{
+            font-size: 40px;
+            color: rgb(4, 97, 160);
+        }
+        #mail{
+            border-radius: 10px;
+            color: rgb(4, 97, 160);
+
+        }
+        #password{
+            color: rgb(4, 97, 160);
+
+        }
+        #submit{
+            color:aliceblue;
+            background-color: rgb(223, 109, 16);
+            padding: 10px;
+            border-radius: 10px;
+            border-color: rgb(223, 109, 16);
+        }
+        .rounded{
+            border-radius: 10px;
+            border-color:rgb(4, 97, 160); 
+            padding: 5px;
+            color: rgb(223, 109, 16);
+        }
+    </style>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="1">
+                <p class="a1"><a href="{{ url_for('home') }}">HOME</a>
+                    
+                    <button style="background-color: rgb(3, 148, 3); color: aliceblue;padding: 5px;border-radius: 5px;">Login</button></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><p class="b1"><img src="{{ url_for('static', filename='shock.jpg') }}" alt="My Image"></p>
+                
+            </td>
+            <td><form class="f1" action="/login" method="post">
+                <label for name="log" id="log"><b>Login Here !</b></label><br><br>
+                <label for name="mail" id="mail"><b>Enter Your Name</b></label><br><br>
+                <input type="text" class="rounded" placeholder="Username" name="uname"><br><br>
+                <label for name ="password" id="password"><b>Your Password</b></label><br><br>
+                <input type="password" class="rounded" placeholder="Your Password" name="pasword"><br><br>
+                <input type="submit" value="Submit Now" id="submit"><br>
+                <p style="color:rgb(4, 97, 160);"><b>You Don't Have Account.</b><a href="{{ url_for('register') }}">Create New Account</a></p>
+            </form></td>
+        </tr>
+    </table>
+</body>
+</html>

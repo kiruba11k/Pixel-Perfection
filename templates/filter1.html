@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GreyImg</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://platform.twitter.com/widgets.js" async></script>
+        <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" async></script>
+    <script>
+        $(document).ready(function() {
+            $('#uploadForm').submit(function(event) {
+                event.preventDefault();
+                var formData = new FormData($(this)[0]);
+
+                $.ajax({
+                    url: '/filter1',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        var resultImageURL = response.filtered_image;
+                        $('#resultImage').attr('src', resultImageURL);
+                        $('#downloadLink').attr('href', resultImageURL);
+                        $('#downloadLink').show();
+                    }
+                });
+            });
+        });
+    </script>
+    
+        <style>
+            
+        body{
+            background-color: rgb(10, 128, 158);
+            align-items: center;
+            padding-left: 200px;
+        }
+        .log{
+            position: absolute;
+            top: 4.3%;
+            right: 4%;
+            
+            
+            
+        }
+        .dropdown {
+        position: absolute;
+        top: 4.3%;
+        right: 8%;
+}
+
+.dropdown .dropbtn {
+font-size: 16px;  
+border: none;
+outline: none;
+color: white;
+padding: 14px 16px;
+background-color: inherit;
+font-family: inherit;
+margin: 0;
+}
+
+.a:hover, .dropdown:hover .dropbtn {
+background-color: red;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: rgb(4, 97, 160);
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+.dropdown-content a {
+float: none;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
+}
+
+.dropdown-content a:hover {
+background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+        a:link 
+        {
+            color: aliceblue;
+         text-decoration: none;
+        }
+
+        a:visited 
+        {color: aliceblue;
+            text-decoration: none;
+
+        }
+        a:hover {
+            color: rgb(223, 109, 16);
+           
+            }
+
+        a:active {
+            color: rgb(223, 109, 16);
+            
+                }
+        .a1{
+           padding-top: 30px;
+            position: absolute; 
+            top: 0%; 
+            right: 15%;
+            align-items: space-between;
+           
+        }
+        .b{
+            font-size: 70px;
+            color: azure;
+            padding-top: 80px;
+        }
+        .c{
+            color: aliceblue;
+            font-size: 20px;
+        }
+        .a{
+            position: absolute;
+        top: 5.2%;
+        right: 4%;
+        }
+        .button{
+            padding:5px;background-color: rgb(16, 192, 16);
+            color: aliceblue;border-radius: 5px; 
+            border-color: green;
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+    
+        <tr >
+            <td clospan="1">
+                <p class="a1">
+                    <a href="{{ url_for('home') }}">HOME |</a>
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Image AI 
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('remov') }}">Remove Bg</a>
+                            <a href="{{ url_for('cartoon') }}">Cartoon Img</a>
+                            <a href="{{ url_for('cartoono') }}">Beauty Img</a>
+                        </div>
+                      </div> 
+                      <p class="log"><a href="{{ url_for('logout') }}" class="button">Logout</a></p>
+                    
+                    
+                    
+                </p>
+                
+            </td>
+        </tr>
+       <tr>
+        <td Align="center">
+            <img src="static/upload.jpg"><br>
+            <p class="ima" style="font-size: 20px; color: rgba(19, 7, 85, 0.651);"><b>Upload Image</b></p><br>
+            <form id="uploadForm" action="{{ url_for('filter1') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*"  required>
+                <input type="submit" class="button" value=" Click to Beautify">
+            </form>
+
+            <h2>Result Image:</h2>
+            <img id="resultImage" alt="Result Image">
+
+            <a id="downloadLink" href="#" download style="display: none;">Download Result Image</a>
+
+            
+        </td>
+
+       </tr>
+    </table>
+</br>
+</html>
